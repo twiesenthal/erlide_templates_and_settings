@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BINDIR=$(dirname $(readlink -f $0))
+BASEDIR=$(readlink -f "$BINDIR/../")
+TESTDIR=$BASEDIR/tmp/200
+
+SRCDIR=$(readlink -f "$BASEDIR/src/module-templates")
+
+
+mkdir -p $TESTDIR
+rm -f $TESTDIR/*
+ls $SRCDIR | grep -e "\.erl$" | while read filename;
+do
+	srcfile="$SRCDIR/$filename"
+	destfile="$TESTDIR/$filename"
+	cp $srcfile $destfile
+done
+
+exit 0

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+BINDIR=$(dirname $(readlink -f $0))
+BASEDIR=$(readlink -f "$BINDIR/../")
+TESTDIR=$BASEDIR/tmp/200
+
+rpi() {
+	PH="\${$1}"
+	sed -i "s/$PH/$2/" $3
+	if [ ! $? -eq 0 ]; then
+		echo "ERROR while replacing placheholder '$1' in file '$3'"
+		exit 1
+	fi
+}
+
+replace_placeholders_inplace() { # ^^
+	rpi file_comment '% file_comment' $1
+ 	rpi module $(basename $(echo "$1" | sed 's/\.erl$//')) $1
+	rpi exports '' $1
+	rpi exported_functions '' $1
+	rpi local_functions '' $1
+}
+
+ls $TESTDIR | while read filename; do
+	replace_placeholders_inplace $TESTDIR/$filename && erlc -W0 -o $TESTDIR $TESTDIR/$filename
+	if [ ! $? -eq 0 ]; then
+		echo "ERROR while compiling $filename"
+		exit 1
+	fi
+done
+
+if [ ! $? -eq 0 ]; then
+	echo "ERROR while compiling"
+	exit 1
+fi
+
+exit 0

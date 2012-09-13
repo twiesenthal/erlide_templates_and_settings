@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BINDIR=$(dirname $(readlink -f $0))
+BASEDIR=$(readlink -f "$BINDIR/../")
+TESTDIR=$BASEDIR/tmp/200
+
+files=$(ls $TESTDIR/*.erl | while read fn; do echo -n "\"$fn\","; done | sed 's/,$//')
+
+erl -noshell -run edoc_run files "[$files]" "[{dir, \"$TESTDIR\"}]"
+if [ ! $? -eq 0 ]; then
+	echo "ERROR while running edoc on '$files'"
+	exit 1
+fi
+
+exit 0

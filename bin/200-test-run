@@ -1,0 +1,12 @@
+#!/bin/bash
+
+BINDIR=$(dirname $(readlink -f $0))
+
+$BINDIR/200-test-000-prepare && $BINDIR/200-test-001-compile && $BINDIR/200-test-002-edoc
+if [ ! $? -eq 0 ]; then
+	echo "ERROR running tests"
+	exit 1
+fi
+
+echo "OK Tests"
+exit 0

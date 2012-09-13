@@ -1,0 +1,12 @@
+#!/bin/bash
+
+BINDIR=$(dirname $(readlink -f $0))
+
+$BINDIR/300-convert-001-erlide
+if [ ! $? -eq 0 ]; then
+	echo "ERROR running conversions"
+	exit 1
+fi
+
+echo "OK Conversions"
+exit 0
