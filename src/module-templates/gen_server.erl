@@ -81,7 +81,7 @@ terminate(Reason, State) ->
 
 %% code_change/3
 %% ====================================================================
-%%% @doc <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3">gen_server:code_change/3</a>
+%% @doc <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3">gen_server:code_change/3</a>
 -spec code_change(OldVsn, State :: term(), Extra :: term()) -> {ok, NewState :: term()} | {error, Reason :: term()} when
 	OldVsn :: Vsn | {down, Vsn},
 	Vsn :: term().
