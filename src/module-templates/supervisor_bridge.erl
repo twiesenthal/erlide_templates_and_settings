@@ -20,7 +20,9 @@ ${exported_functions}
 %% init/1 
 %% ====================================================================
 %% @doc <a href="http://www.erlang.org/doc/man/supervisor_bridge.html#Module:init-1">supervisor_bridge:init/1</a>
--spec init(Args :: term()) -> Result :: {ok, Pid :: pid(), State :: term()} | ignore | {error, Error :: term()}. 
+-spec init(Args :: term()) -> Result :: {ok, Pid :: pid(), State :: term()}
+										| ignore
+										| {error, Error :: term()}. 
 %% ====================================================================
 init([]) ->
     case 'AModule':start_link() of
