@@ -21,7 +21,6 @@ echo_xml() {
 	echo -n "<template autoinsert=\"true\" context=\"$context\" deleted=\"false\" description=\"$desc\" enabled=\"true\" id=\"org.erlide.ui.erlangsource.$id\" name=\"$name\">"
 	cat $5 | while IFS=$'\n' read -r line || [[ -n "$line" ]]; do
 		echo "$line" | sed "s/\&/\&amp;/g;s/>/\&gt;/g;s/</\&lt;/g;s/'/\&apos;/g" | sed 's/"/\&quot;/g'
-		#echo $line | sed 's/[>]/\&gt;/g' | sed 's/[<]/\&lt;/g' | sed 's/["]/\&quot;/g' | sed 's/[\']/\&apos;/g' | sed 's/[\&]/\&amp;/g'
 	done
 	echo -n "</template>"
 }
@@ -57,4 +56,4 @@ echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>' > $OUTD
 cat $XMLDIR/*.xml >> $OUTDIR/templates.xml
 echo '</templates>' >> $OUTDIR/templates.xml
 
-cp $OUTDIR/templates.xml $BASEDIR/templates.xml
+mv $OUTDIR/templates.xml $BASEDIR/templates.xml
