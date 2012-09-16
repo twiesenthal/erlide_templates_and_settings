@@ -2,6 +2,7 @@ ${file_comment}
 
 -module(${module}).
 -behaviour(gen_fsm).
+-export([init/1, state_name/2, state_name/3, handle_event/3, handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 
 %% ====================================================================
 %% API functions
@@ -14,7 +15,6 @@ ${exported_functions}
 %% Behavioural functions
 %% ====================================================================
 -record(state, {}).
--export([init/1, state_name/2, state_name/3, handle_event/3, handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 
 %% init/1
 %% ====================================================================

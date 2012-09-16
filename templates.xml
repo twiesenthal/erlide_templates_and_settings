@@ -3,6 +3,7 @@
 
 -module(${module}).
 -behaviour(application).
+-export([start/2, stop/1]).
 
 %% ====================================================================
 %% API functions
@@ -14,7 +15,6 @@ ${exported_functions}
 %% ====================================================================
 %% Behavioural functions
 %% ====================================================================
--export([start/2, stop/1]).
 
 %% start/2
 %% ====================================================================
@@ -62,6 +62,7 @@ ${local_functions}
 
 -module(${module}).
 -behaviour(gen_event).
+-export([init/1, handle_event/2, handle_call/2, handle_info/2, terminate/2, code_change/3]).
 
 %% ====================================================================
 %% API functions
@@ -74,7 +75,6 @@ ${exported_functions}
 %% Behavioural functions 
 %% ====================================================================
 -record(state, {}).
--export([init/1, handle_event/2, handle_call/2, handle_info/2, terminate/2, code_change/3]).
 
 %% init/1
 %% ====================================================================
@@ -177,6 +177,7 @@ ${local_functions}
 
 -module(${module}).
 -behaviour(gen_fsm).
+-export([init/1, state_name/2, state_name/3, handle_event/3, handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 
 %% ====================================================================
 %% API functions
@@ -189,7 +190,6 @@ ${exported_functions}
 %% Behavioural functions
 %% ====================================================================
 -record(state, {}).
--export([init/1, state_name/2, state_name/3, handle_event/3, handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 
 %% init/1
 %% ====================================================================
@@ -340,6 +340,7 @@ ${local_functions}
 
 -module(${module}).
 -behaviour(gen_server).
+-export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
 %% ====================================================================
 %% API functions
@@ -352,7 +353,6 @@ ${exported_functions}
 %% Behavioural functions 
 %% ====================================================================
 -record(state, {}).
--export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2, code_change/3]).
 
 %% init/1
 %% ====================================================================
@@ -472,6 +472,7 @@ ${local_functions}
 
 -module(${module}).
 -behaviour(supervisor_bridge).
+-export([init/1, terminate/2]).
 
 %% ====================================================================
 %% API functions
@@ -483,8 +484,6 @@ ${exported_functions}
 %% ====================================================================
 %% Behavioural functions 
 %% ====================================================================
--export([init/1, terminate/2]).
-
 -record(state, {}).
 
 %% init/1 
@@ -520,6 +519,7 @@ ${local_functions}
 
 -module(${module}).
 -behaviour(supervisor).
+-export([init/1]).
 
 %% ====================================================================
 %% API functions
@@ -531,7 +531,6 @@ ${exported_functions}
 %% ====================================================================
 %% Behavioural functions 
 %% ====================================================================
--export([init/1]).
 
 %% init/1
 %% ====================================================================

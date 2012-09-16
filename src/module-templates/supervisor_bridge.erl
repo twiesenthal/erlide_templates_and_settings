@@ -2,6 +2,7 @@ ${file_comment}
 
 -module(${module}).
 -behaviour(supervisor_bridge).
+-export([init/1, terminate/2]).
 
 %% ====================================================================
 %% API functions
@@ -13,8 +14,6 @@ ${exported_functions}
 %% ====================================================================
 %% Behavioural functions 
 %% ====================================================================
--export([init/1, terminate/2]).
-
 -record(state, {}).
 
 %% init/1 
